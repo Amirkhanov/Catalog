@@ -1,0 +1,189 @@
+form                       = app-form   //*Класс формы*//
+inputHeight                = 50px       //*Высота input*//
+textareaHeight             = 200px      //*Высота textarea*//
+fontsize                   = 16px       //*Значение шрифта*//
+placeholderColor           = #ccc       //*Цвет для placeholder*//
+rowItemWidth               = 500px      //*Ширина input, textarea и т.д при модификаторе --row у формы*//    
+rowFormResponsive          = 980px      //*Разрешение при котором форма с модификатором --row начинает адаптироваться*//
+
+
+.{form}
+    text-align left
+    
+    &--row
+        .{form}__item--input,
+        .{form}__item--textarea,
+        .{form}__item--select
+            display -webkit-flex
+            display -moz-flex
+            display -ms-flex
+            display -o-flex
+            display flex
+            align-items center
+            
+            .{form}__label
+                flex 1 1 auto
+                margin-right 30px
+                text-align right
+                font-size 14px
+                font-weight 400
+                
+            .{form}__control
+                flex 0 0 rowItemWidth
+                width rowItemWidth
+                margin-left auto
+                
+        .{form}__item--textarea
+            align-items flex-start
+            
+            .{form}__label
+                padding-top 13px
+
+
+    &__title
+        font-size fontsize
+        line-height 28px
+        color: #000
+        margin-bottom 23px
+        
+    &__item
+        margin-bottom 30px
+        
+        input[type=text],
+        input[type=tel],
+        input[type=email],
+        input[type=password],
+        input[type=url],
+        input[type=search],
+        select,
+        .jq-selectbox
+            width 100%
+            font-size fontsize
+            white-space nowrap
+            text-overflow ellipsis
+            overflow hidden
+            box-sizing border-box
+            
+        input[type=text],
+        input[type=tel],
+        input[type=email],
+        input[type=password],
+        input[type=url],
+        input[type=search],
+        textarea
+            
+            &::-webkit-input-placeholder
+              color placeholderColor
+            &::-moz-placeholder
+              color placeholderColor
+            &:-ms-input-placeholder
+              color placeholderColor
+            &:-moz-placeholder
+              color placeholderColor
+              
+        input[type=text],
+        input[type=tel],
+        input[type=email],
+        input[type=password],
+        input[type=url],
+        input[type=search]
+            height: inputHeight
+            padding-left 20px
+               
+        textarea
+            width 100%
+            height textareaHeight
+            font-size fontsize
+            line-height 24px
+            resize none
+            display block
+            box-sizing border-box       
+                
+        &--button
+            margin-bottom 0
+            
+            button
+                max-width 210px
+                height 50px
+                background-color: #e71615
+                border none
+                text-transform uppercase
+                font-size 14px
+                font-weight 700
+                width 100%
+                color: #fff
+                
+        &--radiogroup
+            .{form}__radio
+                margin-bottom 15px
+        
+        &--radiogroup-row
+            .{form}__control
+                display -webkit-flex
+                display -moz-flex
+                display -ms-flex
+                display -o-flex
+                display flex
+                flex-wrap wrap
+                align-items center
+                margin-bottom 25px
+                
+                .{form}__radio
+                    display -webkit-flex
+                    display -moz-flex
+                    display -ms-flex
+                    display -o-flex
+                    display flex
+                    align-items center
+                    margin 0 50px 15px 0
+                    
+                    &:last-child
+                        margin-right 0
+                        
+                    label
+                        color #000000
+                        font-size 14px
+
+@media all and (max-width: rowFormResponsive)
+    .{form}
+        
+        &__title
+            line-height 20px
+            margin-bottom 16px
+            
+        &__item
+            
+            &--radiogroup-row
+                
+                .{form}__control
+                    flex-direction column
+                    align-items flex-start
+                    
+                    .{form}__radio
+                        margin-right 0
+            
+        &--row
+            .{form}__item
+                margin-bottom 11px
+                
+                &--button
+                    margin-top 30px
+                
+            .{form}__item--input,
+            .{form}__item--textarea,
+            .{form}__item--select
+                flex-direction column
+                align-items flex-start
+                
+                .{form}__label
+                    padding-top 0
+                    margin-right 0
+                    text-align left
+                    margin-bottom 5px
+                    max-width none
+                    width 100%
+                    
+                .{form}__control
+                    width 100%
+                    flex 1 1 auto
+                    margin-left 0

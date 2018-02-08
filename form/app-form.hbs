@@ -1,0 +1,50 @@
+{{#each form}}
+    <form block="app-form" mod="{{../mod}}">
+        {{#if title}}
+            <div elem="title">{{title}}</div>
+        {{/if}}
+        {{#each controls}}
+            <div elem="item" mod="{{mod}}">
+                {{#unless ../placeholder}}
+                    {{#if name}}
+                        <div elem="label">
+                            <label for="{{@../key}}-{{@index}}">{{name}}</label>
+                        </div><!-- e:label -->
+                    {{/if}}   
+                {{/unless}}
+                <div elem="control">
+                    {{#compare item "input" operator="=="}}
+                        <input id="{{@../key}}-{{@index}}" type="{{../type}}"{{#if ../required}} required {{/if}} {{#if ../regex}} pattern="{{../regex}}" {{/if}} {{#if ../../placeholder}} placeholder="{{../name}}"{{/if}}>
+                        {{#if ../datepicker}}
+                            <icon name="datepicker" tag="span"></icon> 
+                        {{/if}}
+                    {{/compare}}
+                    {{#compare item "textarea" operator="=="}}
+                        <textarea id="{{@../key}}-{{@index}}" cols="30" rows="10"{{#if ../../placeholder}} placeholder="{{../name}}"{{/if}}></textarea>
+                    {{/compare}}
+                    {{#compare item "radiogroup" operator="=="}}
+                        {{#each ../values}}
+                            <div elem="radio">
+                                <input type="radio" {{#if checked}} checked {{/if}} id="{{@../../key}}-{{@../index}}-{{@index}}" name="{{@../../key}}-{{@../index}}">
+                                <label for="{{@../../key}}-{{@../index}}-{{@index}}" elem="radio-name">{{name}}</label><!-- e:radio-name -->
+                            </div><!-- e:radio -->
+                        {{/each}}
+                    {{/compare}}
+                    {{#compare item "select" operator="=="}}
+                        <select id="{{@../key}}-{{@index}}">
+                            {{#each ../values}}
+                                <option>{{value}}</option>
+                            {{/each}}
+                        </select>
+                    {{/compare}}
+                </div><!-- e:control -->
+            </div>
+            <!-- e:item -->
+        {{/each}}
+        {{#if button-title}}
+            <div elem="item" mod="button">
+                <button type="submit">{{button-title}}</button>
+            </div>
+        {{/if}}
+    </form><!-- b:r-form -->
+{{/each}}

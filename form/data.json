@@ -1,0 +1,67 @@
+{
+    "myForm":{
+    "myForm" : {
+        "title":"Пожалуйста, заполните все поля формы",
+        "placeholder":true,
+        "button-title":"Отправить",
+
+        "controls":[
+            {
+                "item"     :"radiogroup",
+                "mod"      :"radiogroup,radiogroup-row",
+                "values"   :[
+                    {
+                        "name"    :"Благодарность",
+                        "checked" :true
+                    },
+                    {
+                        "name"    :"Жалоба",
+                        "checked" :false
+                    },
+                    {
+                        "name"    :"Предложение",
+                        "checked" :true
+                    }
+                ]
+            },
+            {
+                "item"     :"select",
+                "mod"      :"select",
+                "values"   :[
+                    {
+                        "value"    :"Благодарность"
+                    },
+                    {
+                        "value"    :"Жалоба"
+                    },
+                    {
+                        "value"    :"Предложение"
+                    }
+                ]
+            },
+            {
+                "item"     :"input",
+                "type"     :"text",
+                "name"     :"Ваше имя:",
+                "mod"      :"input",
+                "required" :true,
+                "regex"    :"[а-яА-ЯёЁa-zA-Z]+$"
+            },
+            {
+                "item"     :"input",
+                "type"     :"email",
+                "name"     :"Электронная почта:",
+                "mod"      :"input",
+                "required" :true,
+                "regex"    :"[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,4}$"
+            },
+            {
+                "item"     :"textarea",
+                "name"     :"Текст отзыва:",
+                "mod"      :"textarea",
+                "required" :true
+            }
+        ]
+    }
+    }
+}
