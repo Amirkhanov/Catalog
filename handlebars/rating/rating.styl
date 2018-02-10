@@ -1,0 +1,77 @@
+ratingClass       = rating
+$activeLight      = #ffd380
+
+.{ratingClass}
+
+    &__stars
+        margin-top 1px
+        font-size 0
+
+    .svg-icon
+        fill transparent
+        height 18px
+        width 18px
+        stroke #ffd380
+        stroke-width 29px
+        margin-right 3px
+        
+        &:last-child
+            margin-right 0
+
+    &--large
+        .svg-icon
+            height 20px
+            width 20px
+
+    &--in-review
+
+        .svg-icon
+            width 14px
+            height 12px
+
+    &--rate-0 {}
+
+    &--rate-1
+        .svg-icon:nth-child(1)
+            fill $activeLight
+
+    &--rate-2
+        .svg-icon:nth-child(1)
+            fill $activeLight
+        .svg-icon:nth-child(2)
+            fill $activeLight
+
+    &--rate-3
+        .svg-icon:nth-child(1)
+            fill $activeLight
+        .svg-icon:nth-child(2)
+            fill $activeLight
+        .svg-icon:nth-child(3)
+            fill $activeLight
+
+    &--rate-4
+        .svg-icon:nth-child(1)
+            fill $activeLight
+        .svg-icon:nth-child(2)
+            fill $activeLight
+        .svg-icon:nth-child(3)
+            fill $activeLight
+        .svg-icon:nth-child(4)
+            fill $activeLight
+
+    &--rate-5
+        .svg-icon:nth-child(1)
+            fill $activeLight
+        .svg-icon:nth-child(2)
+            fill $activeLight
+        .svg-icon:nth-child(3)
+            fill $activeLight
+        .svg-icon:nth-child(4)
+            fill $activeLight
+        .svg-icon:nth-child(5)
+            fill $activeLight
+            
+
+    &--dynamic
+        .svg-icon
+            cursor pointer
